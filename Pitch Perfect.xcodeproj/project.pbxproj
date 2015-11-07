@@ -165,6 +165,8 @@
 		0202E70A1BD5128B00530B18 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = kodeguide;
 				TargetAttributes = {

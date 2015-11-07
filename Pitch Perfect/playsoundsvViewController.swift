@@ -35,13 +35,18 @@ class playsoundsvViewController: UIViewController {
         
 //        filepath = NSURL(fileURLWithPath:NSBundle .mainBundle().pathForResource("movie_quote", ofType: "mp3")!)
 //        
-        var error:NSError?
+        let error:NSError?
         
-        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: &error)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
+        } catch let error1 as NSError {
+            error = error1
+//            audioPlayer = nil
+        }
         audioPlayer.prepareToPlay()
         audioPlayer.enableRate = true
         audioEngine = AVAudioEngine()
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        audioFile = try? AVAudioFile(forReading: receivedAudio.filePathUrl)
         // Do any additional setup after loading the view.
     }
 
@@ -82,10 +87,10 @@ class playsoundsvViewController: UIViewController {
         audioEngine.reset()
         
         
-        var audioPlayerNode = AVAudioPlayerNode()
+        let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        var changePitchEffect = AVAudioUnitTimePitch()
+        let changePitchEffect = AVAudioUnitTimePitch()
         changePitchEffect.pitch = pitch
         audioEngine.attachNode(changePitchEffect)
         
@@ -93,7 +98,10 @@ class playsoundsvViewController: UIViewController {
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        do {
+            try audioEngine.start()
+        } catch _ {
+        }
         audioPlayerNode.play()
     }
     /*

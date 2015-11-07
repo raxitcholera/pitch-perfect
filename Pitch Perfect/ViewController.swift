@@ -42,7 +42,7 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
             
         }
     }
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if(flag){
         recordedAudio = AudioModel()
         recordedAudio.filePathUrl = recorder.url
@@ -52,8 +52,11 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
     }
     @IBAction func stopAudioRecordingbtn(sender: UIButton) {
         audioRecorder.stop()
-        var audiosession = AVAudioSession.sharedInstance()
-        audiosession.setActive(false, error: nil)
+        let audiosession = AVAudioSession.sharedInstance()
+        do {
+            try audiosession.setActive(false)
+        } catch _ {
+        }
         
         recordinglbl.hidden = true;
         stopButton.hidden = true;
@@ -67,17 +70,21 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
         stopButton.hidden = false;
         
         //TODO:add record feature
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
 
         let recordingName = "temp.wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        print(filePath)
+        print(filePath, terminator: "")
         
-        var session = AVAudioSession.sharedInstance()
-        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        } catch _ {
+        }
         
-        audioRecorder = AVAudioRecorder(URL: filePath!, settings: nil,error:nil)
+//        audioRecorder = try? AVAudioRecorder(URL: filePath!, settings: nil)
+        try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
         audioRecorder.meteringEnabled = true
         audioRecorder.delegate = self
         audioRecorder.prepareToRecord()
