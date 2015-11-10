@@ -9,18 +9,6 @@
 import UIKit
 import AVFoundation
 
-/*
-
-//Declared globally within PlaySoundsViewController
-
-
-//Inside viewDidLoad
-
-
-//Inside playChipmunkAudio
-
-
-*/
 
 class playsoundsvViewController: UIViewController {
 
@@ -32,29 +20,30 @@ class playsoundsvViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        filepath = NSURL(fileURLWithPath:NSBundle .mainBundle().pathForResource("movie_quote", ofType: "mp3")!)
-//        
+      
         let error:NSError?
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
         } catch let error1 as NSError {
             error = error1
-//            audioPlayer = nil
+
         }
         audioPlayer.prepareToPlay()
         audioPlayer.enableRate = true
         audioEngine = AVAudioEngine()
         audioFile = try? AVAudioFile(forReading: receivedAudio.filePathUrl)
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
+    @IBAction func playNormalAudio(sender: AnyObject) {
+        playaudioatspeed(1.0)
+    }
     @IBAction func fastAudioBtn(sender: UIButton) {
         playaudioatspeed(2.0)
     }
@@ -76,6 +65,8 @@ class playsoundsvViewController: UIViewController {
     func playaudioatspeed(speed:Float)
     {
         audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
         audioPlayer.rate = speed;
         audioPlayer.currentTime=0.0;
         audioPlayer.play()
@@ -104,14 +95,6 @@ class playsoundsvViewController: UIViewController {
         }
         audioPlayerNode.play()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

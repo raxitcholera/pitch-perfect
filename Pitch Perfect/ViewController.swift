@@ -15,6 +15,8 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordbtn: UIButton!
     @IBOutlet weak var recordinglbl: UILabel!
+    @IBOutlet weak var pauseBtn: UIButton!
+    @IBOutlet weak var continueBtn: UIButton!
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:AudioModel!
@@ -22,7 +24,8 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        recordinglbl.text = "Tap To Record"
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,8 +34,9 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
     }
     override func viewWillAppear(animated: Bool) {
         recordbtn.enabled = true;
-        recordinglbl.hidden = true;
         stopButton.hidden = true;
+        pauseBtn.hidden = true;
+        continueBtn.hidden = true;
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier=="stopRecord"){
@@ -57,19 +61,32 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
             try audiosession.setActive(false)
         } catch _ {
         }
-        
-        recordinglbl.hidden = true;
+        recordinglbl.text = "Tap To Record"
         stopButton.hidden = true;
+        pauseBtn.hidden = true;
+        continueBtn.hidden = true;
     }
 
+    @IBAction func continueBtnClicked(sender: UIButton) {
+        recordinglbl.text = "Recording..."
+        continueBtn.hidden = true;
+        pauseBtn.hidden = false;
+        audioRecorder.record()
+    }
+    @IBAction func PauseRecording(sender: UIButton) {
+        audioRecorder.pause()
+        recordinglbl.text = "Tap Record to Continue"
+        pauseBtn.hidden = true;
+        continueBtn.hidden = false;
+    }
     @IBAction func recordAudio(sender: AnyObject) {
         
-        //TODO:add function that shows progress
         recordbtn.enabled = false;
-        recordinglbl.hidden = false;
+        recordinglbl.text = "Recording...";
         stopButton.hidden = false;
+        pauseBtn.hidden = false;
+        continueBtn.hidden = true;
         
-        //TODO:add record feature
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
 
         let recordingName = "temp.wav"
@@ -83,7 +100,6 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
         } catch _ {
         }
         
-//        audioRecorder = try? AVAudioRecorder(URL: filePath!, settings: nil)
         try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
         audioRecorder.meteringEnabled = true
         audioRecorder.delegate = self
