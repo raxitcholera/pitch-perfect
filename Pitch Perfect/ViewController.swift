@@ -28,10 +28,6 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
         recordinglbl.text = "Tap To Record"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     override func viewWillAppear(animated: Bool) {
         recordbtn.enabled = true;
         stopButton.hidden = true;
@@ -66,26 +62,35 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
         pauseBtn.hidden = true;
         continueBtn.hidden = true;
     }
-
+    func rearrangeBtns(current:Bool)
+    {
+        if(current)
+        {
+            continueBtn.hidden = true;
+            pauseBtn.hidden = false;
+        }
+        else
+        {
+            continueBtn.hidden = false;
+            pauseBtn.hidden = true;
+        }
+    }
     @IBAction func continueBtnClicked(sender: UIButton) {
         recordinglbl.text = "Recording..."
-        continueBtn.hidden = true;
-        pauseBtn.hidden = false;
+        rearrangeBtns(true);
         audioRecorder.record()
     }
     @IBAction func PauseRecording(sender: UIButton) {
         audioRecorder.pause()
         recordinglbl.text = "Tap Record to Continue"
-        pauseBtn.hidden = true;
-        continueBtn.hidden = false;
+        rearrangeBtns(false);
     }
     @IBAction func recordAudio(sender: AnyObject) {
         
         recordbtn.enabled = false;
         recordinglbl.text = "Recording...";
         stopButton.hidden = false;
-        pauseBtn.hidden = false;
-        continueBtn.hidden = true;
+        rearrangeBtns(true);
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
 

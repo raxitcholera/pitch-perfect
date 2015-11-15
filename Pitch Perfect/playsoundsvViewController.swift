@@ -64,18 +64,14 @@ class playsoundsvViewController: UIViewController {
     }
     func playaudioatspeed(speed:Float)
     {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopeverthing()
         audioPlayer.rate = speed;
         audioPlayer.currentTime=0.0;
         audioPlayer.play()
     }
     func playaudioatPitch(pitch:Float)
     {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopeverthing()
         
         
         let audioPlayerNode = AVAudioPlayerNode()
@@ -94,6 +90,13 @@ class playsoundsvViewController: UIViewController {
         } catch _ {
         }
         audioPlayerNode.play()
+    }
+    
+    func stopeverthing()
+    {
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
 
