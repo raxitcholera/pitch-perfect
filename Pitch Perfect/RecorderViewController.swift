@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 
-class RecorderViewController: UIViewController ,AVAudioRecorderDelegate{
+class ViewController: UIViewController ,AVAudioRecorderDelegate{
 
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordbtn: UIButton!
