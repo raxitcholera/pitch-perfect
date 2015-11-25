@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecorderViewController.swift
 //  Pitch Perfect
 //
 //  Created by raxit cholera on 10/19/15.
@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 
-class ViewController: UIViewController ,AVAudioRecorderDelegate{
+class RecorderViewController: UIViewController ,AVAudioRecorderDelegate{
 
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordbtn: UIButton!
@@ -44,9 +44,8 @@ class ViewController: UIViewController ,AVAudioRecorderDelegate{
     }
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if(flag){
-        recordedAudio = AudioModel()
+        recordedAudio = AudioModel(text: recorder.url.lastPathComponent!)
         recordedAudio.filePathUrl = recorder.url
-        recordedAudio.title = recorder.url.lastPathComponent
         self.performSegueWithIdentifier("stopRecord", sender: recordedAudio)
         }
     }

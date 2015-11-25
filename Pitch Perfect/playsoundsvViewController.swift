@@ -48,7 +48,7 @@ class playsoundsvViewController: UIViewController {
         playaudioatspeed(2.0)
     }
     @IBAction func stopAudioBtn(sender: UIButton) {
-        audioPlayer.stop()
+        stopeverthing()
     }
 
     @IBAction func playDarkVeda(sender: UIButton) {

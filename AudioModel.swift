@@ -12,4 +12,7 @@ import Foundation
 class AudioModel:NSObject {
     var filePathUrl:NSURL!
     var title:String!
+    init(text: String) {
+        self.title = text
+    }
 }
