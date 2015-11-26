@@ -27,12 +27,8 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ode-di-650">
-                                <rect key="frame" x="275" y="393" width="50" height="25"/>
+                                <rect key="frame" x="275" y="393" width="50" height="50"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="1HV-XH-y8Y"/>
-                                    <constraint firstAttribute="height" constant="25" id="lcx-n7-Y4c"/>
-                                </constraints>
                                 <state key="normal" image="pause"/>
                                 <connections>
                                     <action selector="PauseRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="O5P-oW-7z6"/>
@@ -47,12 +43,8 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-uo-fD2">
-                                <rect key="frame" x="275" y="393" width="50" height="25"/>
+                                <rect key="frame" x="275" y="393" width="50" height="50"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="bd5-Vu-bRi"/>
-                                    <constraint firstAttribute="height" constant="25" id="rGj-MJ-vBJ"/>
-                                </constraints>
                                 <state key="normal" image="continue"/>
                                 <connections>
                                     <action selector="continueBtnClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vad-GQ-c72"/>
