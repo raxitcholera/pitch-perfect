@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h0H-Qv-Vxh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h0H-Qv-Vxh">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aau-UJ-kS8">
                                 <rect key="frame" x="250" y="250" width="100" height="100"/>
-                                <animations/>
                                 <state key="normal" image="microphone-iphone"/>
                                 <connections>
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9WE-QM-bQv"/>
@@ -28,7 +27,6 @@
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ode-di-650">
                                 <rect key="frame" x="275" y="393" width="50" height="50"/>
-                                <animations/>
                                 <state key="normal" image="pause"/>
                                 <connections>
                                     <action selector="PauseRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="O5P-oW-7z6"/>
@@ -36,7 +34,6 @@
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRH-gi-LhJ">
                                 <rect key="frame" x="275" y="530" width="50" height="50"/>
-                                <animations/>
                                 <state key="normal" image="stopBtn"/>
                                 <connections>
                                     <action selector="stopAudioRecordingbtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="o03-aE-ypW"/>
@@ -44,7 +41,6 @@
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-uo-fD2">
                                 <rect key="frame" x="275" y="393" width="50" height="50"/>
-                                <animations/>
                                 <state key="normal" image="continue"/>
                                 <connections>
                                     <action selector="continueBtnClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vad-GQ-c72"/>
@@ -52,7 +48,6 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApW-Pz-YWd">
                                 <rect key="frame" x="197" y="364" width="207" height="21"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="207" id="4Rh-g9-YSH"/>
                                     <constraint firstAttribute="height" constant="21" id="7cf-Bt-kfj"/>
@@ -62,7 +57,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ApW-Pz-YWd" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" constant="0.5" id="0Li-g1-iTQ"/>
@@ -105,7 +99,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQb-eC-PAX">
                                 <rect key="frame" x="50" y="144" width="100" height="100"/>
-                                <animations/>
                                 <state key="normal" image="slow"/>
                                 <connections>
                                     <action selector="slowAudiobtn:" destination="L32-db-N0c" eventType="touchUpInside" id="XHR-ef-bu8"/>
@@ -113,7 +106,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcM-8D-ot2">
                                 <rect key="frame" x="450" y="144" width="100" height="100"/>
-                                <animations/>
                                 <state key="normal" image="fast"/>
                                 <connections>
                                     <action selector="fastAudioBtn:" destination="L32-db-N0c" eventType="touchUpInside" id="pb3-md-NJ3"/>
@@ -121,15 +113,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSM-bg-Kp3">
                                 <rect key="frame" x="50" y="380" width="100" height="100"/>
-                                <animations/>
                                 <state key="normal" image="chipmunk"/>
                                 <connections>
                                     <action selector="playChipmunkAudio:" destination="L32-db-N0c" eventType="touchUpInside" id="LeK-T9-NPw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebi-RE-KTW">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebi-RE-KTW">
                                 <rect key="frame" x="250" y="255" width="100" height="100"/>
-                                <animations/>
                                 <state key="normal" image="normal"/>
                                 <connections>
                                     <action selector="playNormalAudio:" destination="L32-db-N0c" eventType="touchUpInside" id="JCV-Ji-I37"/>
@@ -137,7 +127,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFt-HS-oz5">
                                 <rect key="frame" x="275" y="531" width="50" height="50"/>
-                                <animations/>
                                 <state key="normal" image="stopBtn"/>
                                 <connections>
                                     <action selector="stopAudioBtn:" destination="L32-db-N0c" eventType="touchUpInside" id="fYp-ZM-vL8"/>
@@ -145,14 +134,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4q-hO-0rZ">
                                 <rect key="frame" x="450" y="380" width="100" height="100"/>
-                                <animations/>
                                 <state key="normal" image="darkveda"/>
                                 <connections>
                                     <action selector="playDarkVeda:" destination="L32-db-N0c" eventType="touchUpInside" id="pgk-sB-TTt"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BFt-HS-oz5" firstAttribute="centerX" secondItem="ftO-Ri-hV6" secondAttribute="centerX" id="0dX-LT-PWB"/>
@@ -183,7 +170,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ebZ-5m-Ugi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
